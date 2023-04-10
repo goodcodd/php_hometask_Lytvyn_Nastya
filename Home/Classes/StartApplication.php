@@ -19,16 +19,14 @@ class StartApplication
 
     public function __construct(readonly Router $router, string $URI)
     {
+        self::debugConsole('StartApplication: ' . $URI);
         $this->URI = $URI;
         $this->routerData = $router;
-        self::debugConsole($this->URI);
     }
 
-    /**
-     * @throws SmartyException
-     */
     public function run(): void{
         try{ // спробуємо знайти збіг нашого URI з патерном роутера
+            self::debugConsole('StartApplication: run');
             $match = $this->routerData->findRoute($this->URI);
             $controller = $match[self::CONTROLLER];
             $action = $match[self::ACTION];

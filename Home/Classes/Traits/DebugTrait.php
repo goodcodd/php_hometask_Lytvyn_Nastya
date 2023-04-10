@@ -11,7 +11,6 @@ trait DebugTrait
             var_dump($data);
         }
     }
-
     public static function debugConsole($data): void
     {
         global $debug;
