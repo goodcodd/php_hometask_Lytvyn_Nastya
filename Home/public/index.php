@@ -35,8 +35,10 @@
 
     //$router->addRoute('/admin', AdminController::class, ControllerMethodName::METHOD_NAME);
 
-    $app = new StartApplication($router, $_SERVER['REQUEST_URI'] ?? '/');
-
+//    $app = new StartApplication($router, $_SERVER['REQUEST_URI'] ?? '/');
+//
+//    $app->run();
+    $app = StartApplication::getInstance($router, $_SERVER['REQUEST_URI'] ?? '/');
     $app->run();
 
 
