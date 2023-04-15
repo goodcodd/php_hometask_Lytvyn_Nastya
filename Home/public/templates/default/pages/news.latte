@@ -1,0 +1,13 @@
+<div>
+    This is {$page}
+</div>
+
+{foreach $news as $item}
+    <div>
+        <h2>{$item['title']}</h2>
+        <p>{$item['text']}</p>
+        <p>{$item['date']}</p>
+    </div>
+    <hr>
+{/foreach}
+

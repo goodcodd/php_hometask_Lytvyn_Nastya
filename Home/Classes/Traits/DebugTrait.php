@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Trait DebugTrait
+ * @package Phpcourse\Myproject\Classes\Traits
+ */
+
 namespace Phpcourse\Myproject\Classes\Traits;
 
 trait DebugTrait
@@ -11,6 +16,7 @@ trait DebugTrait
             var_dump($data);
         }
     }
+
     public static function debugConsole($data): void
     {
         global $debug;

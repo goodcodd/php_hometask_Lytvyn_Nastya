@@ -1,31 +1,26 @@
 <?php
 
+/**
+ * Class Rendering
+ * @package Phpcourse\Myproject\Classes\Rendering
+ */
+
 namespace Phpcourse\Myproject\Classes\Rendering;
 
-
-//use Monolog\Level;
-//use Monolog\Logger;
-//use Monolog\Handler\StreamHandler;
-//use Monolog\Handler\FirePHPHandler;
-
+use Latte\Engine;
 use Phpcourse\Myproject\Classes\Traits\DebugTrait;
-use Latte;
-class Rendering {
-    use DebugTrait;
+use Phpcourse\Myproject\Classes\Traits\MonologTrait;
 
-    public function __construct(array $data) {
+class Rendering{
+    use DebugTrait, MonologTrait; // використовуємо трейти для налагодження та логування
+    public function __construct(array $data){
 
-        self::debugConsole('Rendering');
+        self::debugConsole($data); // викликаємо метод debugConsole() з трейту DebugTrait
+        self::debugLog($data); // викликаємо метод debugLog() з трейту MonologTrait
 
-        $latte = new Latte\Engine;
+        $latte = new Engine(); // створюємо об'єкт класу Latte\Engine
 
-        $latte->setTempDirectory('templates/default/temp');
-        $latte->render('templates/default/index.tpl', $data);
+        $latte->render('templates/default/index.latte', $data); // відображаємо шаблон
 
-//        $log = new Logger('my_logger');
-//        $log->pushHandler(new StreamHandler('logs/mono.log', Level::Debug));
-//        $log->pushHandler(new FirePHPHandler());
-//        $log->warning('My logger is not ready');
-//        $log->info('My logger is ready');
     }
 }

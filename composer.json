@@ -16,7 +16,8 @@
     ],
     "minimum-stability": "beta",
     "require": {
-        "latte/latte": "^3.0",
-        "monolog/monolog": "^3.3"
+        "php": ">=8.1.0",
+        "monolog/monolog": "3.3.1",
+        "latte/latte": "^v3.0.6"
     }
 }
